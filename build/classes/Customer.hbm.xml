@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="example.entity">
+  <class name="Customer" table="Customer_main" lazy="false">
+	  <id name="cust_id" type="int" column="cust_id">
+	   <generator class="increment"/>	   	   	
+	  </id>
+	  <property name="firstname" type="string">
+		 <column name="firstname" />
+	  </property>
+	  	  <property name="lastname" type="string">
+		 <column name="lastname" />
+	  </property>
+	  <property name="dob" type="string">
+		<column name="dob"/>
+	  </property>
+	  <property name="address" type="string">
+		<column name="address"/>
+	  </property>
+	  <property name="username" type="string">
+		<column name="username"/>
+	  </property>	
+	  	  <property name="password" type="string">
+		<column name="password"/>
+	  </property> 
+	 <property name="mobile" type="string">
+		<column name="mobile"/>
+	  </property> 
+	  
+	<list name="accounts" cascade="all" lazy="false">
+		<key column="cust_id" />
+		<list-index column="idx" />
+		<one-to-many class="Account"/>
+	</list>
+	  
+	 
+   </class>
+</hibernate-mapping>

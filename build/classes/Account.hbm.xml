@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="example.entity">
+  <class name="Account" table="account_main" lazy="false">
+		<id name= "acc_no" type="int" column="acc_no">
+		<generator class="increment">  
+     			 
+  			</generator>
+			
+		</id>
+		
+		<property name="acc_type" type="string">
+		<column name="acc_type"/>
+		</property>
+	
+		<property name="balance" type="double">
+		<column name="balance"/>
+		</property>
+		
+		<property name="creationDate" type="date">
+		<column name="creationDate"/>
+		</property>
+		
+		 <list name="transactions" cascade="all" lazy="false">
+		<key column="acc_no" />
+		<list-index column="idx" />
+		<one-to-many class="Transaction"/>
+		</list>
+	
+	<list name="cheques" cascade="all" lazy="false" >
+ 		<key column="acc_no"/>
+ 		<list-index column="accIndex"/>
+ 		<one-to-many class="Cheque"/>
+	</list>
+	
+	
+	
+	</class>
+</hibernate-mapping>

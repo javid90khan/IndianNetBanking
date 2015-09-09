@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="example.entity">
+  <class name="Cheque" table="Cheque_deposit_main" lazy="false">
+	  <id name="cheque_id" type="int" column="cheque_id">
+	   <generator class="increment"/>	   	   	
+	  </id>
+	  <!-- <property name="to_acc_no" type="int">
+		 <column name="to_acc_no" />
+	  </property> -->
+	  <property name="cheque_date" type="date">
+		 <column name="cheque_date" />
+	  </property>
+	  <property name="b_details" type="string">
+		 <column name="b_details" />
+	  </property>
+	  <property name="cheque_no" type="int">
+		 <column name="cheque_no" />
+	  </property>
+	  <property name="amount" type="double">
+		<column name="amount"/>
+	  </property>
+	  <property name="status" type="string">
+		 <column name="status" />
+	  </property>
+	  <property name="dep_date" type="date">
+		<column name="dep_date"/>
+	  </property>  
+	  <property name="to_acc_no" type="int">
+		<column name="to_acc_no"/>
+	  </property>
+
+	</class> 
+</hibernate-mapping>

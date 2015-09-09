@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+ 
+	<constant name="struts.devMode" value="true" />
+   	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+   	
+   	<package name="cheque" namespace="/banking" extends="struts-default">
+		
+		<action name="approveCheques" class="example.action.ApproveChequesAction">
+				<result name="success">/approveChequesSuccess.jsp</result>
+		</action>
+		
+		<action name="chequeDeposit" class="example.action.ChequeDepositAction">
+			<result name="success">/chequeDepositSuccess.jsp</result>
+			<result name="input">/chequeDeposit.jsp</result>
+		</action> 
+		
+		
+		<action name="showPendingCheques" class="example.action.ShowPendingChequesAction">
+			<result name="success">/pendingCheques.jsp</result>
+		</action> 
+		
+	</package>
+
+	
+	<package name="account" namespace="/banking" extends="struts-default">
+		
+		
+		 <action name="selectAccount" class="example.action.SelectAccountAction" >
+			<result name="success">/customerMenu.jsp</result>
+
+		</action>
+		
+		<!-- <action name="switchAccount" class="example.action.SwitchAccountAction" >
+			<result name="success">/adminMenuMenu.jsp</result>
+
+		</action> -->
+
+		<action name="showBalance" class="example.action.ShowBalanceAction">
+			<result name="success">/showBalance.jsp</result>
+		</action>
+		
+				
+		<action name="createAccount" class="example.action.CreateAccountAction">
+			<result name="success">/createAccountSuccess.jsp</result>
+			<result name="error">/createAccountFailure.jsp</result>
+			<result name="input">/createAccount.jsp</result>
+		</action>
+		
+		
+		 <action name="showBankStatement" class="example.action.ShowBankStatementAction">
+				<result name="success">/showStatement.jsp</result>
+		</action> 
+	
+		<action name="fundTransfer" class="example.action.FundTransferAction">
+			<result name="success">/fundTransferSuccess.jsp</result>
+			<result name="error">/fundTransferFailure.jsp</result>
+			<result name="input">/fundTransfer.jsp</result>
+		</action>
+
+	</package>
+
+
+   	<package name="customer" namespace="/banking" extends="struts-default">
+		
+		<action name="AddCustomer" class="example.action.AddCustomerAction">
+			<result name="success">/createCustomerSuccess.jsp</result>
+			<result name="error">/createCustomerFailure.jsp</result>
+			<result name="input">/addCustomer.jsp</result>
+		</action>
+		
+		
+		<action name="createCustomer" class="example.action.CreateCustomerAction">
+			<result name="success">/createCustomerSuccess.jsp</result>
+			<result name="error">/createCustomerFailure.jsp</result>
+			<result name="input">/createCustomer.jsp</result>
+		</action>	
+		
+		
+		
+		
+	</package>
+
+	<package name="login" namespace="/banking" extends="struts-default">
+ 		
+		<action name="login" class="example.action.LoginAction">
+			<result name="admin">/adminMenu.jsp</result>
+			<result type="redirect" name="customer">selectAccountAction</result>
+			<result name="invalid">/loginFailure.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="reset">/accountBlocked.jsp</result>
+		</action>	
+		
+		<action name="logout" class="example.action.LoginAction" method="logout">
+			<result name="success">/logoutSuccess.jsp</result>
+
+		</action>
+		 
+		 <action name="selectAccountAction" 
+         class="example.action.ComboBoxAction" method="display">
+			<result name="none">/selectAccount.jsp</result>
+   		</action>
+
+	</package>
+
+
+		
+		
+</struts>

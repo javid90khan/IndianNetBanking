@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="example.entity">
+  <class name="Transaction" table="transaction_main" lazy="false">
+		<id name= "tid" type="int" column="tid">
+		<generator class="increment">  
+  			</generator>	
+		</id>
+		
+		<property name="tdate" type="date">
+		<column name="tdate"/>
+		</property>
+	
+		<property name="debit" type="double">
+		<column name="debit"/>
+		</property>
+		
+		<property name="credit" type="double">
+		<column name="credit"/>
+		</property>
+		
+		<property name="description" type="string">
+		<column name="description"/>
+		</property>
+
+	</class>
+</hibernate-mapping>
